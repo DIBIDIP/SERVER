@@ -2,7 +2,7 @@
 
 # DIBIDIP의 AR Dish
 
-AR기능이 구현되는 메뉴판을 제작
+AR기능이 구현되는 메뉴판 스캐너를 제작
 
 ## AR Dish 개발 환경
 
