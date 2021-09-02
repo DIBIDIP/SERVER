@@ -28,7 +28,7 @@ app.use(cookieParser());
 
 /* 기존 api */
 app.use("/api/users", require("./routes/users"));
-app.use("/api/favorite", require("./routes/favorite"));
+app.use("/api/Favorite", require("./routes/Favorite"));
 app.use("/api/comment", require("./routes/comment"));
 app.use("/api/like", require("./routes/like"));
 

@@ -1,15 +1,26 @@
 version: "3.8"
 
 services:
-    node:
+    react:
         build:
-            context: .
+            context: ./client
             dockerfile: ./Dockerfile
         ports:
-            - "5000:3001"
+            - "3000:3000"
+        container_name: react
+        links: 
+            - node
+        command: "npm run start"
+    node:
+        build:
+            context: ./server
+            dockerfile: ./Dockerfile
+        ports:
+            - "3001:3001"
         container_name: node
         links: 
             - mongo
+        command: "npm run backend"
     mongo:
         image: mongo
         container_name: mongo

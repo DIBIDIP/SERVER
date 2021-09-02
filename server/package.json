@@ -4,7 +4,7 @@
   "description": "AR-DISH project's BACKEND_FILE",
   "main": "index.js",
   "engine": {
-    "node": "14.17.4",
+    "node": "10.16.0",
     "npm": "6.9.0"
   },
   "scripts": {

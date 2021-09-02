@@ -2,7 +2,7 @@
 
 # DIBIDIP의 AR Dish
 
-AR기능이 구현되는 메뉴판 스캐너를 제작
+AR기능이 구현되는 메뉴판을 제작
 
 ## AR Dish 개발 환경
 
@@ -10,4 +10,4 @@ NodsJS, MongoDB, Express, VScode, React 등
 
 ## 해당 레포지토리는
 
-- Docker로 서버를 올리고 배포함
+- API 제작 연습을 진행합니다.
