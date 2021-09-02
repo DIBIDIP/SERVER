@@ -1,29 +1,41 @@
 version: "3.8"
 
 services:
-    react:
-        build:
-            context: ./client
-            dockerfile: ./Dockerfile
-        ports:
-            - "3000:3000"
-        container_name: react
-        links: 
-            - node
-        command: "npm run start"
-    node:
-        build:
-            context: ./server
-            dockerfile: ./Dockerfile
-        ports:
-            - "3001:3001"
-        container_name: node
-        links: 
-            - mongo
-        command: "npm run backend"
-    mongo:
-        image: mongo
-        container_name: mongo
-        ports: 
-          - "27017:27017"
+  react:
+    build:
+      context: ./client
+      dockerfile: ./Dockerfile
+    container_name: react
+    links:
+      - node
+    volumes:
+      - build_folder:/frontend/build/
 
+  node:
+    build:
+      context: ./server
+      dockerfile: ./Dockerfile
+    ports:
+      - "3001:3001"
+    container_name: node
+    links:
+      - mongo
+    command: "npm run backend"
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "3000:80"
+    volumes:
+      - ./nginx/nginx-proxy.conf:/etc/nginx/conf.d/default.conf:ro
+      - build_folder:/var/www/frontend/
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"
+
+volumes:
+  build_folder:
